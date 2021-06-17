@@ -35,6 +35,15 @@ class ShopProduct
         // $this->playLength = $playLength;
     }
 
+    // listing 03.48
+    public function getProducerFirstName()
+    {
+        return $this->producerFirstName;
+    }
+    public function getProducerMainName()
+    {
+        return $this->producerMainName;
+    }
 
     // listing 03.30
     public function getNumberOfPages()
@@ -56,6 +65,17 @@ class ShopProduct
     public function setDiscount(int $num)
     {
         $this->discount = $num;
+    }
+
+    // listing 03.48
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     // listing 03.10
@@ -100,11 +120,17 @@ class ShopProduct
         return $base;
     }
 }
-
-
 // listing 03.18
 class ShopProductWriter
 {
+    // listing 03.46
+    public $products = [];
+
+    public function addProduct(ShopProduct $shopProduct)
+    {
+        $this->products[] = $shopProduct;
+    }
+
     public function write($shopProduct)
     {
         if (
@@ -158,7 +184,8 @@ class CdProduct extends ShopProduct
     }
     public function getSummaryLine()
     {
-        $base = parent::getSummaryLine();
+        $base = "{$this->title} ( { $this->getProducerMainName}, ";
+        $base .= "{$this->getProducerFirstName} )";
         $base .= ": playing time - {$this->playLength}";
         return $base;
     }
@@ -203,6 +230,11 @@ class BookProduct extends ShopProduct
     {
         return $this->producerFirstName . " "
             . $this->producerMainName;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
     }
 }
 
