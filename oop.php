@@ -357,11 +357,24 @@ print nl2br("listing 03.38 \r\n");
 $product2 = new CdProduct(
     "Exile on Coldharbour Lane",
     "The",
-    "Alabama 3",
+    "Alabama 3", 
     10.99,
     0,
     60.33
     );
     print "artist: {$product2->getProducer()}\n";
+
+
+
+    // listing 04.01
+    class StaticExample
+    {
+        static public $aNum = 0;
+        public static function sayHello()
+        {
+            self::$aNum++;
+            echo self::$aNum;
+        }
+    }
 
 ?>
