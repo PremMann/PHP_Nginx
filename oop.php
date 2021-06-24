@@ -377,4 +377,14 @@ $product2 = new CdProduct(
         }
     }
 
+// listing 05.21
+$classname = "Task";
+require_once("{$classname}.php");
+$classname = "tasks\\$classname";
+$myObj = new $classname();
+$myObj->doSpeak();
+
+
+
+
 ?>
